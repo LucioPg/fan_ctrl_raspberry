@@ -7,14 +7,14 @@ import sys
 
 # Configuration
 FAN_PIN = 21  # BCM pin used to drive transistor's base
-WAIT_TIME = 1  # [s] Time to wait between each refresh
-FAN_MIN = 30  # [%] Fan minimum speed.
+WAIT_TIME = 0.5  # [s] Time to wait between each refresh
+FAN_MIN = 50  # [%] Fan minimum speed.
 PWM_FREQ = 25  # [Hz] Change this value if fan has strange behavior
-
+FAN_MAX = 105
 # Configurable temperature and fan speed steps
 #tempSteps = [50, 70]  # [°C]
-tempSteps = [temp for temp in range(50,65)]
-speedSteps = [sp for sp in range(30, 101, 5)]  # [%]
+tempSteps = [temp for temp in range(41,52)]
+speedSteps = [sp for sp in range(FAN_MIN, FAN_MAX, 5)]  # [%]
 
 # Fan speed will change only of the difference of temperature is higher than hysteresis
 hyst = 1
