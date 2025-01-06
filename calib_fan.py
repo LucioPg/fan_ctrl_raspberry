@@ -23,13 +23,16 @@ speedSteps = [0, 100]
 cpuTempOld=0
 
 try:
-    while 1:
-        fanSpeed=float(input("Fan Speed: "))
-        fan.ChangeDutyCycle(fanSpeed)
+	while 1:
+		fanSpeed=float(input("Fan Speed: "))
+		if 0 <= fanSpeed < 101:
+			fan.ChangeDutyCycle(fanSpeed)
+		else:
+			print("Fan speed duty cycle must be between 0 and 100")
 
 
 except(KeyboardInterrupt):
-    print("Fan ctrl interrupted by keyboard")
-    GPIO.cleanup()
-    sys.exit()
-    
+	print("Fan ctrl interrupted by keyboard")
+	GPIO.cleanup()
+	sys.exit()
+
